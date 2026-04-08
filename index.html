@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Argentina Próspera 2027-2031</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+Pro:wght@300;400;600;700&family=Abril+Fatface&family=Barlow+Condensed:wght@400;600;700;900&display=swap');
+
+:root {
+  --celeste: #74ACDF;
+  --celeste-dark: #4A8BC2;
+  --blanco: #FFFFFF;
+  --sol: #F6B40E;
+  --sol-light: #FFD54F;
+  --tierra: #8B6914;
+  --noche: #1a1a2e;
+  --gris-suave: #f5f5f0;
+  --texto: #2c2c2c;
+  --verde-esperanza: #4CAF50;
+  --verde-cancha: #2E7D32;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: var(--texto);
+  background: var(--gris-suave);
+  overflow-x: hidden;
+}
+
+/* Sutil textura de cancha en el fondo */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 80px,
+    rgba(46,125,50,0.015) 80px,
+    rgba(46,125,50,0.015) 160px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--celeste) 0%, var(--celeste-dark) 40%, var(--noche) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--celeste) 0, var(--celeste) 30%, var(--blanco) 30%, var(--blanco) 36%, var(--celeste) 36%);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--celeste) 0, var(--celeste) 30%, var(--blanco) 30%, var(--blanco) 36%, var(--celeste) 36%);
+}
+
+/* Líneas sutiles tipo cancha */
+.hero .cancha-line {
+  position: absolute;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.hero-sun {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, var(--sol) 40%, var(--sol-light) 60%, transparent 70%);
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  animation: pulse-sun 4s ease-in-out infinite;
+  box-shadow: 0 0 60px rgba(246, 180, 14, 0.4);
+}
+
+@keyframes pulse-sun {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+.hero h1 {
+  font-family: 'Barlow Condensed', 'Abril Fatface', serif;
+  font-weight: 900;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  color: var(--blanco);
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 4px 12px rgba(0,0,0,0.3);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.hero .subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  color: var(--sol-light);
+  margin-bottom: 2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.hero .bajada {
+  max-width: 700px;
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.hero-cta {
+  display: inline-block;
+  background: var(--sol);
+  color: var(--noche);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(246,180,14,0.4);
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(246,180,14,0.6);
+  background: var(--sol-light);
+}
+
+/* ===== FRANJA QUOTES ===== */
+.franja-quotes {
+  background: var(--noche);
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.franja-quotes .quotes-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.quote-item {
+  padding: 1.5rem;
+  border-left: 4px solid var(--sol);
+  text-align: left;
+}
+
+.quote-item blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.9);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.quote-item cite {
+  color: var(--sol);
+  font-size: 0.95rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ===== SECCIONES GENERALES ===== */
+section {
+  padding: 5rem 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-family: 'Barlow Condensed', 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--noche);
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-header .section-line {
+  width: 80px;
+  height: 4px;
+  background: var(--sol);
+  margin: 0 auto 1rem;
+  border-radius: 2px;
+}
+
+.section-header p {
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* ===== VALORES ===== */
+.valores {
+  background: var(--blanco);
+}
+
+.valores-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.valor-card {
+  background: var(--gris-suave);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-left: 5px solid var(--celeste);
+  border-bottom: none;
+  position: relative;
+}
+
+.valor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  border-left-color: var(--sol);
+}
+
+.valor-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.valor-card h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--noche);
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.valor-card p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ===== DOCUMENTOS ===== */
+.documentos {
+  background: var(--gris-suave);
+}
+
+.docs-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.2rem;
+}
+
+.doc-card {
+  background: var(--blanco);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: var(--texto);
+  border: 1px solid #eee;
+}
+
+.doc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-color: var(--celeste);
+}
+
+.doc-number {
+  background: var(--celeste);
+  color: var(--blanco);
+  font-weight: 700;
+  font-size: 0.85rem;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.doc-number.highlight {
+  background: var(--sol);
+  color: var(--noche);
+}
+
+.doc-info h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+
+.doc-info p {
+  font-size: 0.82rem;
+  color: #888;
+  line-height: 1.4;
+}
+
+/* ===== VIDEOS ===== */
+.videos {
+  background: var(--noche);
+  color: var(--blanco);
+}
+
+.videos .section-header h2 { color: var(--blanco); }
+.videos .section-header p { color: rgba(255,255,255,0.7); }
+
+.videos-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.video-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: border-color 0.3s;
+}
+
+.video-card:hover {
+  border-color: var(--sol);
+}
+
+.video-card video {
+  width: 100%;
+  display: block;
+  background: #000;
+}
+
+.video-card .video-info {
+  padding: 1rem 1.2rem;
+}
+
+.video-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--sol-light);
+}
+
+.video-card p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.4;
+}
+
+/* ===== LLAMADO ===== */
+.llamado {
+  background: linear-gradient(135deg, var(--celeste) 0%, var(--celeste-dark) 100%);
+  text-align: center;
+  color: var(--blanco);
+  padding: 5rem 2rem;
+}
+
+.llamado h2 {
+  font-family: 'Barlow Condensed', 'Abril Fatface', serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.llamado p {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.llamado .firma {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--sol-light);
+  margin-top: 2rem;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--noche);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: var(--sol);
+  text-decoration: none;
+}
+
+/* ===== NAV ===== */
+.nav-top {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(26,26,46,0.95);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+}
+
+.nav-top.visible {
+  transform: translateY(0);
+}
+
+.nav-top .nav-brand {
+  font-family: 'Abril Fatface', serif;
+  color: var(--blanco);
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.nav-top .nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-top .nav-links a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.nav-top .nav-links a:hover {
+  color: var(--sol);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav-top .nav-links { display: none; }
+  .docs-grid { grid-template-columns: 1fr; }
+  .videos-grid { grid-template-columns: 1fr; }
+  .hero-sun { width: 80px; height: 80px; }
+  .franja-quotes .quotes-container { gap: 1.5rem; }
+  .quote-item blockquote { font-size: 1rem; }
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav-top" id="nav">
+  <a href="#hero" class="nav-brand">Argentina Próspera</a>
+  <ul class="nav-links">
+    <li><a href="#valores">Pilares</a></li>
+    <li><a href="#documentos">Plan</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#llamado">Sumate</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="cancha-line"></div>
+  <div class="hero-sun"></div>
+  <h1>Argentina Próspera</h1>
+  <p class="subtitle">Plan Nacional 2027 – 2031</p>
+  <p class="bajada">
+    Un proyecto de país construido con el corazón en la gente y los pies en la tierra.
+    Redistribuir para que nadie quede afuera, producir regenerando lo que se rompió,
+    gobernar con serenidad y conectar con el pueblo en sus términos.
+    Como en el mejor fútbol: jugar en equipo, para todos.
+  </p>
+  <a href="#documentos" class="hero-cta">Conocé el Plan</a>
+</section>
+
+<!-- FRANJA DE CITAS -->
+<div class="franja-quotes">
+  <div class="quotes-container">
+    <div class="quote-item fade-in">
+      <blockquote>"Yo no me quiero ir, quiero seguir siendo argentino. Quiero que mi país sea el mejor del mundo... y lo va a ser."</blockquote>
+      <cite>— Diego Armando Maradona</cite>
+    </div>
+    <div class="quote-item fade-in">
+      <blockquote>"Donde existe una necesidad, nace un derecho."</blockquote>
+      <cite>— Eva Perón</cite>
+    </div>
+    <div class="quote-item fade-in">
+      <blockquote>"Toda mi vida fui así: siempre pensando más en el grupo que en lo individual. Lo que importa es el equipo."</blockquote>
+      <cite>— Lionel Messi</cite>
+    </div>
+    <div class="quote-item fade-in">
+      <blockquote>"La patria no se salva si no la salvamos entre todos."</blockquote>
+      <cite>— El sentir del pueblo argentino</cite>
+    </div>
+  </div>
+</div>
+
+<!-- VALORES -->
+<section class="valores" id="valores">
+  <div class="section-header">
+    <h2>Nuestros Pilares</h2>
+    <div class="section-line"></div>
+    <p>Un proyecto de país que juega en equipo: con los números claros, la producción en marcha y la certeza de que nadie se tiene que quedar afuera de la cancha.</p>
+  </div>
+  <div class="valores-grid">
+    <div class="valor-card fade-in">
+      <span class="valor-icon">&#9878;</span>
+      <h3>Redistribución de la Riqueza</h3>
+      <p>La Argentina produce para todos, pero hoy la riqueza se concentra en muy pocos. Con reforma tributaria progresiva y políticas de ingreso, nos aseguramos de que nadie se quede atrás — como un equipo donde todos tocan la pelota.</p>
+    </div>
+    <div class="valor-card fade-in">
+      <span class="valor-icon">&#9851;</span>
+      <h3>Desarrollo Regenerativo</h3>
+      <p>No alcanza con crecer: hay que regenerar lo que se rompió. Industrias que crean empleo, ecosistemas que se recuperan, comunidades que prosperan. Un desarrollo que no destruye el futuro sino que lo construye.</p>
+    </div>
+    <div class="valor-card fade-in">
+      <span class="valor-icon">&#9874;</span>
+      <h3>Serenidad para Gobernar</h3>
+      <p>Gobernar sin odio, sin grieta, con datos y con el corazón sereno. Escuchar todas las voces, buscar lo mejor para el pueblo sin fanatismos — con la calma del que sabe lo que quiere y con firmeza para ejecutarlo.</p>
+    </div>
+    <div class="valor-card fade-in">
+      <span class="valor-icon">&#9733;</span>
+      <h3>Gobierno Popular</h3>
+      <p>Un gobierno que habla como la gente, que está en el barrio y en la fábrica, que conecta con las grandes mayorías. Como Messi que nunca se olvidó de Rosario, o Diego que siempre fue de Villa Fiorito — gobernar es estar con el pueblo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTOS -->
+<section class="documentos" id="documentos">
+  <div class="section-header">
+    <h2>El Plan Completo</h2>
+    <div class="section-line"></div>
+    <p>21 documentos de trabajo que cubren cada aspecto del futuro que merecemos. Descargá, leé, compartí y hacelos tuyos.</p>
+  </div>
+  <div class="docs-grid">
+
+    <a class="doc-card fade-in" href="00_PLAN_MAESTRO_Argentina_2027-2031.docx" download>
+      <div class="doc-number highlight">00</div>
+      <div class="doc-info">
+        <h4>Plan Maestro Argentina 2027-2031</h4>
+        <p>La visión integral: hoja de ruta, objetivos y estrategia general del proyecto de país.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="00a_MAPA_IDEAS_AUTORES_Investigacion.docx" download>
+      <div class="doc-number">00a</div>
+      <div class="doc-info">
+        <h4>Mapa de Ideas, Autores e Investigación</h4>
+        <p>Las fuentes intelectuales y la investigación detrás de cada propuesta.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="01_MANIFIESTO_ARGENTINA_PROSPERA.docx" download>
+      <div class="doc-number highlight">01</div>
+      <div class="doc-info">
+        <h4>Manifiesto Argentina Próspera</h4>
+        <p>La declaración de principios: por qué hacemos esto y qué Argentina soñamos.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="02_DIAGNOSTICO_ARGENTINA_2026.docx" download>
+      <div class="doc-number">02</div>
+      <div class="doc-info">
+        <h4>Diagnóstico Argentina 2026</h4>
+        <p>Radiografía del país hoy: dónde estamos parados y cuáles son los problemas urgentes.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="03_VIVIENDA_HABITAT_DIGNO.docx" download>
+      <div class="doc-number">03</div>
+      <div class="doc-info">
+        <h4>Vivienda y Hábitat Digno</h4>
+        <p>Techo propio para cada familia argentina: urbanización, créditos y política habitacional.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="04_SALUD_PARA_TODOS.docx" download>
+      <div class="doc-number">04</div>
+      <div class="doc-info">
+        <h4>Salud para Todos</h4>
+        <p>Sistema de salud universal, integrado y de calidad para los 47 millones.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="04a_SALUD_CENTRO_AI_INVESTIGACION.docx" download>
+      <div class="doc-number">04a</div>
+      <div class="doc-info">
+        <h4>Centro de IA e Investigación en Salud</h4>
+        <p>Inteligencia artificial al servicio de la salud pública argentina.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="05_EDUCACION_PARA_EL_FUTURO.docx" download>
+      <div class="doc-number">05</div>
+      <div class="doc-info">
+        <h4>Educación para el Futuro</h4>
+        <p>Transformar la educación argentina para que cada pibe tenga las herramientas del siglo XXI.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="06_TRABAJO_PRODUCCION_ECONOMIA.docx" download>
+      <div class="doc-number">06</div>
+      <div class="doc-info">
+        <h4>Trabajo, Producción y Economía</h4>
+        <p>Producir, crear empleo de calidad y que el laburo rinda: política económica con la gente adentro.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="07_AMBIENTE_ADAPTACION_CLIMATICA.docx" download>
+      <div class="doc-number">07</div>
+      <div class="doc-info">
+        <h4>Ambiente y Adaptación Climática</h4>
+        <p>Cuidar la tierra que nos da de comer: transición energética, litio y economía verde.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="08_SEGURIDAD_CONVIVENCIA.docx" download>
+      <div class="doc-number">08</div>
+      <div class="doc-info">
+        <h4>Seguridad y Convivencia</h4>
+        <p>Seguridad con inteligencia, sin gatillo fácil: prevención, tecnología y comunidad.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="09_GOBIERNO_INTELIGENTE.docx" download>
+      <div class="doc-number">09</div>
+      <div class="doc-info">
+        <h4>Gobierno Inteligente</h4>
+        <p>Estado moderno, transparente y eficiente: tecnología al servicio del ciudadano.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="10_FISCALIDAD_COMO_SE_PAGA.docx" download>
+      <div class="doc-number highlight">10</div>
+      <div class="doc-info">
+        <h4>Fiscalidad: Cómo se Paga</h4>
+        <p>Reforma tributaria progresiva para financiar el plan sin magia ni deuda.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="11_ARGENTINA_EN_EL_MUNDO.docx" download>
+      <div class="doc-number">11</div>
+      <div class="doc-info">
+        <h4>Argentina en el Mundo</h4>
+        <p>Inserción inteligente: comercio, cooperación y soberanía en el siglo XXI.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="12_COMUNIDAD_CULTURA_TIEMPO_LIBRE.docx" download>
+      <div class="doc-number">12</div>
+      <div class="doc-info">
+        <h4>Comunidad, Cultura y Tiempo Libre</h4>
+        <p>Identidad, cultura popular y derecho al goce: porque la vida no es solo trabajar.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="13_FACTIBILIDAD_INTEGRADA.docx" download>
+      <div class="doc-number highlight">13</div>
+      <div class="doc-info">
+        <h4>Factibilidad Integrada</h4>
+        <p>Los números cierran: análisis de viabilidad técnica, fiscal y política del plan completo.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="14_HOJA_DE_RUTA_2027-2031.docx" download>
+      <div class="doc-number highlight">14</div>
+      <div class="doc-info">
+        <h4>Hoja de Ruta 2027-2031</h4>
+        <p>Cronograma de implementación: qué se hace cada año, paso a paso.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="15_MODELO_ECONOMICO_CUANTITATIVO.docx" download>
+      <div class="doc-number">15</div>
+      <div class="doc-info">
+        <h4>Modelo Económico Cuantitativo</h4>
+        <p>Simulaciones y proyecciones macroeconómicas que respaldan cada propuesta.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="16_GUIONES_5_VIDEOS_SOLARPUNK.docx" download>
+      <div class="doc-number">16</div>
+      <div class="doc-info">
+        <h4>Guiones de los 5 Videos</h4>
+        <p>Los libretos creativos de los videos que imaginan la Argentina que viene.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="17_PRODUCCION_VIDEOS_PLAN_COMPLETO.docx" download>
+      <div class="doc-number">17</div>
+      <div class="doc-info">
+        <h4>Producción de Videos: Plan Completo</h4>
+        <p>Guía técnica de producción audiovisual del proyecto.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="19_ANALISIS_FINANCIAMIENTO_REFORMA_TRIBUTARIA.docx" download>
+      <div class="doc-number highlight">19</div>
+      <div class="doc-info">
+        <h4>Análisis de Financiamiento y Reforma Tributaria</h4>
+        <p>7 propuestas progresivas con ejemplos internacionales para recaudar 3-4% del PBI.</p>
+      </div>
+    </a>
+
+    <a class="doc-card fade-in" href="20_IBU_INTELIGENCIA_ARTIFICIAL_REFORMA_PRODUCTIVA.docx" download>
+      <div class="doc-number highlight">20</div>
+      <div class="doc-info">
+        <h4>IBU, Inteligencia Artificial y Reforma Productiva</h4>
+        <p>Ingreso Básico Universal + IA + transformación productiva: el futuro del trabajo argentino.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="videos" id="videos">
+  <div class="section-header">
+    <h2>Videos: Imaginá la Argentina que Viene</h2>
+    <div class="section-line"></div>
+    <p>6 videos que cuentan el plan de forma directa y visual. Compartí, difundí, hacé que lleguen a todos los rincones.</p>
+  </div>
+  <div class="videos-grid">
+
+    <div class="video-card fade-in">
+      <video controls preload="metadata">
+        <source src="videos_finales/V0_Argentina_Prospera_Datos.mp4" type="video/mp4">
+        <track kind="subtitles" src="videos_finales/V0_Argentina_Prospera_Datos.srt" srclang="es" label="Español" default>
+      </video>
+      <div class="video-info">
+        <h4>V0 — Argentina en Datos</h4>
+        <p>La realidad en números: diagnóstico del país con estadísticas clave, desafío de la IA e Ingreso Garantizado.</p>
+      </div>
+    </div>
+
+    <div class="video-card fade-in">
+      <video controls preload="metadata">
+        <source src="videos_finales/V1_Argentina_Prospera.mp4" type="video/mp4">
+        <track kind="subtitles" src="videos_finales/V1_Argentina_Prospera.srt" srclang="es" label="Español" default>
+      </video>
+      <div class="video-info">
+        <h4>V1 — Argentina Próspera: La Visión</h4>
+        <p>El sueño de un país justo, productivo y solidario narrado en clave solarpunk.</p>
+      </div>
+    </div>
+
+    <div class="video-card fade-in">
+      <video controls preload="metadata">
+        <source src="videos_finales/V2_Argentina_Prospera.mp4" type="video/mp4">
+        <track kind="subtitles" src="videos_finales/V2_Argentina_Prospera.srt" srclang="es" label="Español" default>
+      </video>
+      <div class="video-info">
+        <h4>V2 — Salud, Educación y Vivienda</h4>
+        <p>Los tres pilares sociales: cómo garantizamos derechos básicos para 47 millones.</p>
+      </div>
+    </div>
+
+    <div class="video-card fade-in">
+      <video controls preload="metadata">
+        <source src="videos_finales/V3_Argentina_Prospera.mp4" type="video/mp4">
+        <track kind="subtitles" src="videos_finales/V3_Argentina_Prospera.srt" srclang="es" label="Español" default>
+      </video>
+      <div class="video-info">
+        <h4>V3 — Trabajo y Producción</h4>
+        <p>Economía real, empleo de calidad y transición tecnológica con la gente adentro.</p>
+      </div>
+    </div>
+
+    <div class="video-card fade-in">
+      <video controls preload="metadata">
+        <source src="videos_finales/V4_Argentina_Prospera.mp4" type="video/mp4">
+        <track kind="subtitles" src="videos_finales/V4_Argentina_Prospera.srt" srclang="es" label="Español" default>
+      </video>
+      <div class="video-info">
+        <h4>V4 — Ambiente y Energía</h4>
+        <p>Transición verde, litio con valor agregado y adaptación climática para el sur del mundo.</p>
+      </div>
+    </div>
+
+    <div class="video-card fade-in">
+      <video controls preload="metadata">
+        <source src="videos_finales/V5_Argentina_Prospera.mp4" type="video/mp4">
+        <track kind="subtitles" src="videos_finales/V5_Argentina_Prospera.srt" srclang="es" label="Español" default>
+      </video>
+      <div class="video-info">
+        <h4>V5 — El Futuro es Nuestro</h4>
+        <p>Cierre emotivo: la Argentina que podemos construir entre todos, empezando ahora.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LLAMADO -->
+<section class="llamado" id="llamado">
+  <h2>La Patria es el Otro</h2>
+  <p>
+    Este plan no es de un partido, no es de un líder, es de 47 millones de argentinos
+    que merecen vivir con dignidad. Como Diego que gambeteaba para todo un pueblo,
+    como Messi que levantó la copa pensando en cada pibe que la soñó con él,
+    como Evita que ponía el cuerpo por los humildes — acá estamos, poniendo ideas
+    al servicio de la gente.
+  </p>
+  <p>
+    Descargá los documentos, miralos con tus vecinos, discutilos en el club, en la fábrica,
+    en la mesa del domingo. Cada propuesta tiene números, tiene fundamentos, tiene corazón.
+    No pedimos que nos crean — pedimos que lean, que piensen, que sueñen
+    y que se pongan la camiseta.
+  </p>
+  <p class="firma">
+    "La pelota no se mancha" — y la esperanza tampoco.<br>
+    Argentina Próspera 2027-2031
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Argentina Próspera 2027-2031 — Redistribución, desarrollo regenerativo y gobierno popular.</p>
+  <p style="margin-top:0.5rem;">Hecho con amor por el pueblo argentino. Todos los documentos son de libre distribución.</p>
+</footer>
+
+<script>
+// Nav visibility on scroll
+const nav = document.getElementById('nav');
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) {
+    nav.classList.add('visible');
+  } else {
+    nav.classList.remove('visible');
+  }
+  lastScroll = window.scrollY;
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Fade in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
